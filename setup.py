@@ -4,7 +4,7 @@ setup(
     name='stock-bot',
     version='0.1.0',    
     description='Discord bot for monitoring stock positions',
-    url='',
+    url='https://github.com/ericqian1/stock-bot.git',
     author='Eric Qian',
     author_email='tianze1995@yahoo.com',
     license='MIT',
