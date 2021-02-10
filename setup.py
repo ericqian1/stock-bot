@@ -8,7 +8,7 @@ setup(
     author='Eric Qian',
     author_email='tianze1995@yahoo.com',
     license='MIT',
-    packages=['discord', 'yfinance'],
+    packages=['discord.py', 'yfinance'],
     install_requires=[],
 
     classifiers=[
