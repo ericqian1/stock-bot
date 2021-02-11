@@ -72,7 +72,7 @@ def stock_gen_msg(stock):
     if last_price is not None:
         return_msg += f'\nLast price on {stock}: {last_price}'
         return_msg += f'\nLast close on {stock}: {open_price}'
-        return_msg += f'\n% Change: {round((last_price-open_price)/last_price * 100,2)}'
+        return_msg += f'\n% Change: {round((last_price-open_price)/open_price * 100,2)}'
     else:
         return_msg += "\nInvalid ticker {stock}, please check"
     
