@@ -10,6 +10,15 @@ TOKEN = os.environ["STOCK_BOT_TOKEN"]
 VALID_PERIODS = ["1d","5d","1mo","3mo","6mo","1y","2y","5y","10y","ytd","max"]
 
 
+def get_last_close(symbol):
+    ticker = yf.Ticker(symbol)
+    todays_data = ticker.history(period="5d")
+    
+    if len(todays_data) == 0:
+        return None
+    else:
+        return round(todays_data['Close'][-2], 2)
+
 
 def get_last_open(symbol, period):
     ticker = yf.Ticker(symbol)
@@ -58,11 +67,11 @@ def stock_gen_msg(stock):
     return_msg = ""
     
     last_price = get_current_price(stock)
-    open_price = get_last_open(stock, "1d")    
+    open_price = get_last_close(stock)    
     
     if last_price is not None:
         return_msg += f'\nLast price on {stock}: {last_price}'
-        return_msg += f'\nOpen price on {stock}: {open_price}'
+        return_msg += f'\nLast close on {stock}: {open_price}'
         return_msg += f'\n% Change: {round((last_price-open_price)/last_price * 100,2)}'
     else:
         return_msg += "\nInvalid ticker {stock}, please check"
